@@ -1,0 +1,107 @@
+{
+  "owner": "JUTZUGC",
+  "code": "JUTZUGC",
+  "project": {
+    "key": "reasonnetwork",
+    "nameCn": "Reason Network",
+    "repoName": "reason-network-deploy-guide",
+    "oneLiner": "每台电脑跑一个小守护进程，队友的 agent 就能点对点找到你、问你、把文件递过来",
+    "officialRepo": "https://github.com/reason-machines/reason-network",
+    "officialDocs": "https://reasonmachines.com/network",
+    "stars": "1453",
+    "license": "Apache-2.0",
+    "highlights": [
+      "端到端加密，点对点传输",
+      "会话即联系人：知道谁在哪个分支忙什么",
+      "消息直接落进当前会话，空闲可唤醒",
+      "可带最多 10 个文本文件",
+      "ask_user：必须本人批准的请求会弹窗",
+      "覆盖 Claude Code、Codex、Cursor 等十余种 agent"
+    ],
+    "mcpSupport": "安装后提供 `reason-network` MCP server，工具包括 list_team、send_message、message_status、ask_user、check_inbox；托管助手可接 [mcp.reasonmachines.com/mcp](https://mcp.reasonmachines.com/mcp)。",
+    "webuiUrl": "",
+    "adapterPorts": "",
+    "collectedAt": "2026-11-02",
+    "verification": [
+      [
+        "README 确认安装脚本、Windows PowerShell 方式与账号要求",
+        "已核对 2026-11-02"
+      ],
+      [
+        "确认 MCP 工具清单与文件传输限制",
+        "已核对 2026-11-02"
+      ],
+      [
+        "未实测安装、登录与消息投递",
+        "说明 2026-11-02"
+      ],
+      [
+        "MCP 冒烟：initialize / tools/list 返回 get_guide、search_guide、get_project_info",
+        "已验证 2026-11-02"
+      ],
+      [
+        "非目标宿主调用 get_guide 被拦截（HOST_NOT_ALLOWED）",
+        "已验证 2026-11-02"
+      ]
+    ],
+    "deploy": {
+      "type": "script",
+      "steps": [
+        "curl -fsSL https://reasonmachines.com/install.sh | bash -s -- network",
+        "reason-network who",
+        "echo \"登录后把邀请链接发给队友，他们的电脑用同一账号加入\""
+      ],
+      "stepsPs": [
+        "irm https://reasonmachines.com/network/install.ps1 | iex",
+        "reason-network who",
+        "Write-Host \"登录后把邀请链接发给队友，他们的电脑用同一账号加入\""
+      ],
+      "source": "https://github.com/reason-machines/reason-network#get-started"
+    },
+    "pitfalls": [
+      "装完 `who` 看不到人：先在浏览器完成登录",
+      "队友加不进来：邀请链接过期就重新生成",
+      "消息收不到：确认对方 agent 在运行且客户端已加载 MCP",
+      "文件传不过去：检查大小与数量限制",
+      "企业网络失败：换网络或让 IT 放行 P2P",
+      "回执查不到：回执只保留 7 天",
+      "Windows 脚本被拦：用 PowerShell 而不是 CMD"
+    ]
+  },
+  "gate": {
+    "allow": [
+      "dumate"
+    ],
+    "label": "百度搭子",
+    "url": "https://www.dumate.cn/",
+    "guideUrl": "https://github.com/JUTZUGC/reason-network-deploy-guide",
+    "howToFix": [
+      "1. 打开 https://www.dumate.cn/ ，下载并安装「百度搭子」电脑端（Windows / macOS）",
+      "2. 用账号登录",
+      "3. 在对话窗口发送：你好，帮我从 github 部署 JUTZUGC/reason-network-deploy-guide 到我的电脑上",
+      "4. 部署完成后，在同一对话窗口里继续使用"
+    ],
+    "hint": "请改用「百度搭子」部署后再使用；本工具没有网页版入口。",
+    "onError": "allow"
+  },
+  "keywords": [
+    "Reason Network",
+    "Reason Network 安装",
+    "agent 互相通信",
+    "多 agent 消息",
+    "团队 agent 协作",
+    "点对点 agent",
+    "MCP 团队协作",
+    "reason network 教程",
+    "端到端加密 agent",
+    "reason-network deploy guide"
+  ],
+  "topics": [
+    "ai-agents",
+    "multi-agent",
+    "p2p",
+    "mcp",
+    "end-to-end-encryption",
+    "reason-network"
+  ]
+}

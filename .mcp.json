@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "reasonnetwork-guide": {
+      "command": "node",
+      "args": [
+        "mcp-server.mjs"
+      ]
+    }
+  }
+}
